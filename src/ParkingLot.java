@@ -28,6 +28,7 @@ public class ParkingLot {
     }
 
     public Car pickUp(Ticket ticket) {
+        availableSpace++;
         return cars.remove(ticket);
     }
 }

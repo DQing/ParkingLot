@@ -42,6 +42,7 @@ public class parkingLot_specs {
         var pickedCar = parkingLot.pickUp(ticket);
 
         Assert.assertSame(parkedCar, pickedCar);
+        Assert.assertEquals(1, parkingLot.getAvailableSpace());
     }
 
     @Test

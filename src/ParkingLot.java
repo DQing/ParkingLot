@@ -1,5 +1,3 @@
-import java.util.Dictionary;
-import java.util.Enumeration;
 import java.util.HashMap;
 
 public class ParkingLot {
@@ -32,5 +30,9 @@ public class ParkingLot {
     public Car pickUp(Ticket ticket) {
         availableSpace++;
         return cars.remove(ticket);
+    }
+
+    public int getCapacity() {
+        return capacity;
     }
 }

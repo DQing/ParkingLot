@@ -1,12 +1,9 @@
-public class SmartParkingBoy extends GraduateParkingBoy {
-    private ParkingLot[] parkingLots;
+public class SmartParkingBoy extends ParkingBoy {
 
     public SmartParkingBoy(ParkingLot... parkingLots) {
         super(parkingLots);
-        this.parkingLots = parkingLots;
     }
 
-    @Override
     public Ticket park(Car car) {
         Ticket ticket = null;
         ParkingLot parkingLot = getParkingLotWithMoreSpace();

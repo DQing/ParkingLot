@@ -36,6 +36,10 @@ Given ParkingManager管理一个GraduateParkingBoy，SmartParkingBoy，SuperPark
 When ParkingManager 让GraduateParkingBoy，SmartParkingBoy，SuperParkingBoy分别串行去停车
 Then 三个boy分别停车成功，且空余车位更新
 
+Given ParkingManager管理一个SuperParkingBoy。且存在另一个不被ParkingManage管理的SuperParkingBoy
+When ParkingManager 让第二个SuperParkingBoy去停车
+Then 停车失败
+
 Given 一个初始停车位为20的停车场，且空余车位为1 When ParkingManager 停车 Then 停车成功并打印小票，且空余车位为0
 Given 一个初始停车位为20的停车场，且空余车位为0和有效的小票 When ParkingManager 取车 Then 取车成功，且空余车位加1
 

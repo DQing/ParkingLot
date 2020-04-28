@@ -1,8 +1,7 @@
-public class GraduateParkingBoy {
-    private ParkingLot[] parkingLots;
+public class GraduateParkingBoy extends ParkingBoy {
 
     public GraduateParkingBoy(ParkingLot... parkingLots) {
-        this.parkingLots = parkingLots;
+        super(parkingLots);
     }
 
     public Ticket park(Car car) {
@@ -14,17 +13,5 @@ public class GraduateParkingBoy {
             }
         }
         return ticket;
-    }
-
-    public Car pickUp(Ticket ticket) {
-        Car car = null;
-        for (ParkingLot parkingLot : parkingLots) {
-            car = parkingLot.pickUp(ticket);
-            if (car != null) {
-                break;
-            }
-
-        }
-        return car;
     }
 }

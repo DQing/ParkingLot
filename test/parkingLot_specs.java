@@ -27,4 +27,51 @@ public class parkingLot_specs {
         Car car = new Car();
         parkingLot.park(car);
     }
+
+    @Test
+    public void should_pick_up_car_success_when_use_valid_ticket() {
+        ParkingLot parkingLot = new ParkingLot(20);
+        for (int i = 0; i < 19; i++) {
+            Car car = new Car();
+            parkingLot.park(car);
+        }
+
+        Car parkedCar = new Car();
+        var ticket = parkingLot.park(parkedCar);
+
+        var pickedCar = parkingLot.pickUp(ticket);
+
+        Assert.assertSame(parkedCar, pickedCar);
+    }
+
+    @Test
+    public void should_pick_up_car_failed_when_use_invalid_ticket() {
+        ParkingLot parkingLot = new ParkingLot(20);
+        for (int i = 0; i < 19; i++) {
+            Car car = new Car();
+            parkingLot.park(car);
+        }
+
+        Car parkedCar = new Car();
+        parkingLot.park(parkedCar);
+
+        var pickedCar = parkingLot.pickUp(new Ticket());
+        Assert.assertNull(pickedCar);
+    }
+
+    @Test
+    public void should_pick_up_car_failed_when_use_reuse_ticket() {
+        ParkingLot parkingLot = new ParkingLot(20);
+        for (int i = 0; i < 19; i++) {
+            Car car = new Car();
+            parkingLot.park(car);
+        }
+
+        Car parkedCar = new Car();
+        var ticket = parkingLot.park(parkedCar);
+
+        parkingLot.pickUp(ticket);
+        var pickedCar = parkingLot.pickUp(ticket);
+        Assert.assertNull(pickedCar);
+    }
 }

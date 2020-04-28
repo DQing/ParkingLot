@@ -14,12 +14,14 @@ public class ParkingLot {
     }
 
     public Ticket park(Car car) {
-        if (availableSpace == 0) {
-            throw new ParkingLotIsFullException();
+        Ticket ticket = null;
+
+        if (availableSpace > 0) {
+            ticket = new Ticket();
+            availableSpace--;
+            cars.put(ticket, car);
         }
-        var ticket = new Ticket();
-        availableSpace--;
-        cars.put(ticket, car);
+
         return ticket;
     }
 

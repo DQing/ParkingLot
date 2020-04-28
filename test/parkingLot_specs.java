@@ -17,7 +17,7 @@ public class parkingLot_specs {
         Assert.assertNotNull(ticket);
     }
 
-    @Test(expected = ParkingLotIsFullException.class)
+    @Test
     public void should_park_failed_when_given_parking_lot_has_no_space() {
         ParkingLot parkingLot = new ParkingLot(20);
         for (int i = 0; i < 20; i++) {
@@ -25,7 +25,7 @@ public class parkingLot_specs {
             parkingLot.park(car);
         }
         Car car = new Car();
-        parkingLot.park(car);
+        Assert.assertNull(parkingLot.park(car));
     }
 
     @Test
